@@ -1,0 +1,9 @@
+.logo {
+    margin: 0 auto;
+    margin-top: 90px;
+}
+@media screen and (min-width: 900px) {
+    .logo {
+        margin-top: 86px;
+    }
+}

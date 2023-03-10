@@ -1,9 +1,9 @@
 import css from "./SearchInput.module.css";
-import searchIcon from "../assets/icons/search-icon.svg";
+import searchIcon from "../../assets/icons/search-icon.svg";
 
 const SearchInput = () => {
     return (
-        <div>
+        <div className={css.wrap}>
             <input
                 type="search"
                 name="search"

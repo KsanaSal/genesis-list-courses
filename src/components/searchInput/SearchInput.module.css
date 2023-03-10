@@ -1,0 +1,29 @@
+.wrap {
+    position: relative;
+    margin-top: 32px;
+}
+@media screen and (min-width: 900px) {
+    .wrap {
+        margin-top: 16px;
+    }
+}
+
+.input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-size: 16px;
+}
+@media screen and (min-width: 900px) {
+    .input {
+        min-width: 100%;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+}
