@@ -3,7 +3,7 @@ import searchIcon from "../../assets/icons/search-icon.svg";
 
 const SearchInput = () => {
     return (
-        <div className={css.wrap}>
+        <form className={css.wrap}>
             <input
                 type="search"
                 name="search"
@@ -11,8 +11,10 @@ const SearchInput = () => {
                 placeholder="Filter by name ..."
                 autoFocus
             />
-            <img src={searchIcon} alt="Search icon" className={css.icon} />
-        </div>
+            <button type="submit" className={css.button}>
+                <img src={searchIcon} alt="Search icon" />
+            </button>
+        </form>
     );
 };
 

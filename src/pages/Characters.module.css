@@ -1,9 +1,11 @@
 .logo {
     margin: 0 auto;
     margin-top: 90px;
+    width: 312px;
 }
 @media screen and (min-width: 900px) {
     .logo {
         margin-top: 86px;
+        width: 600px;
     }
 }

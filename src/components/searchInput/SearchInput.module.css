@@ -15,6 +15,7 @@
     border-radius: 8px;
     font-family: "Roboto";
     font-size: 16px;
+    outline: none;
 }
 @media screen and (min-width: 900px) {
     .input {
@@ -22,8 +23,10 @@
     }
 }
 
-.icon {
+.button {
     position: absolute;
     top: 14px;
     left: 16px;
+    border: none;
+    background-color: transparent;
 }
