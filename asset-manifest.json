@@ -1,19 +1,16 @@
 {
   "files": {
-    "main.css": "/genesis-list-courses/static/css/main.d614ba74.css",
-    "main.js": "/genesis-list-courses/static/js/main.0c4a7896.js",
+    "main.css": "/genesis-list-courses/static/css/main.3754a5bd.css",
+    "main.js": "/genesis-list-courses/static/js/main.8ade20c3.js",
     "static/js/787.ef9700f3.chunk.js": "/genesis-list-courses/static/js/787.ef9700f3.chunk.js",
     "static/media/character.png": "/genesis-list-courses/static/media/character.caf434dbb5e0045b4ab8.png",
-    "static/media/rick-morty-desktop.png": "/genesis-list-courses/static/media/rick-morty-desktop.e8a6f9e9772983aa9417.png",
-    "static/media/rick-morty-mobile.png": "/genesis-list-courses/static/media/rick-morty-mobile.7204047985809d7ee4fc.png",
     "index.html": "/genesis-list-courses/index.html",
-    "static/media/search-icon.svg": "/genesis-list-courses/static/media/search-icon.c77a50f238257623b5e066b03e852c00.svg",
-    "main.d614ba74.css.map": "/genesis-list-courses/static/css/main.d614ba74.css.map",
-    "main.0c4a7896.js.map": "/genesis-list-courses/static/js/main.0c4a7896.js.map",
+    "main.3754a5bd.css.map": "/genesis-list-courses/static/css/main.3754a5bd.css.map",
+    "main.8ade20c3.js.map": "/genesis-list-courses/static/js/main.8ade20c3.js.map",
     "787.ef9700f3.chunk.js.map": "/genesis-list-courses/static/js/787.ef9700f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d614ba74.css",
-    "static/js/main.0c4a7896.js"
+    "static/css/main.3754a5bd.css",
+    "static/js/main.8ade20c3.js"
   ]
 }
