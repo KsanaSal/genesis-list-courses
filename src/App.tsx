@@ -2,8 +2,8 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Characters from "./pages/Characters";
-import CharacterDetails from "./pages/CharacterDetails";
+import Characters from "./pages/Courses";
+import CharacterDetails from "./pages/LessonsCourse";
 
 function App() {
     return (
