@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <BrowserRouter basename="/reenbit-list-cartoon-characters">
+        <BrowserRouter basename="/genesis-list-courses">
             <App />
         </BrowserRouter>
     </React.StrictMode>
