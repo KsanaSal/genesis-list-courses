@@ -1,9 +1,10 @@
-.logo {
-    margin: 0 auto;
-    margin-top: 90px;
-    width: 312px;
+.title {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 600px) {
     .logo {
         margin-top: 86px;
         width: 600px;
