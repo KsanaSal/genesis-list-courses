@@ -4,7 +4,7 @@ import css from "./CardCourse.module.css";
 const CardCourse = ({ course }: any) => {
     return (
         <div className={css.wrapCard}>
-            <img src={character} alt="Course" />
+            <img src={course.previewImageLink + "/cover.webp"} alt="Course" />
             <div className={css.wrapContent}>
                 <div className={css.wrapTitle}>
                     <h2 className={css.title}>{course.title}</h2>

@@ -1,7 +1,8 @@
 import css from "./Courses.module.css";
-import CardCourse from "../components/cardCourse/CardCourse";
+// import CardCourse from "../components/cardCourse/CardCourse";
 import { useEffect, useState } from "react";
 import getCardsCourses from "../data/getCardsCourses";
+import CardListCourse from "../components/cardListCourse/CardListCourse";
 
 const Characters = ({ loading }: any) => {
     const [courses, setCourses] = useState([]);
@@ -24,16 +25,7 @@ const Characters = ({ loading }: any) => {
     return (
         <div>
             <h1 className={css.title}>Learn more</h1>
-            <ul>
-                {courses &&
-                    courses.map((course: any) => {
-                        return (
-                            <li key={course.id}>
-                                <CardCourse course={course} />
-                            </li>
-                        );
-                    })}
-            </ul>
+            <CardListCourse courses={courses} />
         </div>
     );
 };
