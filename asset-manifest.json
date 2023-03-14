@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/genesis-list-courses/static/css/main.d72f928e.css",
-    "main.js": "/genesis-list-courses/static/js/main.797dbdd4.js",
+    "main.css": "/genesis-list-courses/static/css/main.94d87a4e.css",
+    "main.js": "/genesis-list-courses/static/js/main.fa1008a6.js",
     "static/js/787.ef9700f3.chunk.js": "/genesis-list-courses/static/js/787.ef9700f3.chunk.js",
     "index.html": "/genesis-list-courses/index.html",
-    "main.d72f928e.css.map": "/genesis-list-courses/static/css/main.d72f928e.css.map",
-    "main.797dbdd4.js.map": "/genesis-list-courses/static/js/main.797dbdd4.js.map",
+    "main.94d87a4e.css.map": "/genesis-list-courses/static/css/main.94d87a4e.css.map",
+    "main.fa1008a6.js.map": "/genesis-list-courses/static/js/main.fa1008a6.js.map",
     "787.ef9700f3.chunk.js.map": "/genesis-list-courses/static/js/787.ef9700f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d72f928e.css",
-    "static/js/main.797dbdd4.js"
+    "static/css/main.94d87a4e.css",
+    "static/js/main.fa1008a6.js"
   ]
 }
