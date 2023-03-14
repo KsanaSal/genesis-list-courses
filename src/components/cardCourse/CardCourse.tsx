@@ -12,7 +12,7 @@ const CardCourse = ({ course }: { course: Courses }) => {
                 </div>
                 <div className={css.wrapText}>
                     <p className={css.text}>
-                        Lessons count:{" "}
+                        Lessons:{" "}
                         <span className={css.span}>{course.lessonsCount}</span>
                     </p>
                     <p className={css.text}>

@@ -2,6 +2,8 @@ import { Courses } from "../../interfaces/courses.interface";
 import CardCourse from "../cardCourse/CardCourse";
 import css from "./CardListCourse.module.css";
 
+
+
 const CardListCourse = ({ courses }: { courses: Courses[] }) => {
     return (
         <ul className={css.wrapList}>

@@ -5,10 +5,32 @@
     font-weight: 700;
     font-family: Georgia, "Times New Roman", Times, serif;
     font-style: italic;
+    color: #211194;
 }
-@media screen and (min-width: 600px) {
-    .logo {
-        margin-top: 86px;
-        width: 600px;
+
+.wrapPagination {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 10px;
+    gap: 4px;
+    margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+    .wrapPagination {
+        width: 300px;
     }
+}
+
+.wrapTitle {
+    background-color: rgba(33, 17, 148, 0.1);
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    color: #211194;
+    font-weight: 500;
+}
+
+.wrapActive {
+    background-color: #f57f04;
 }

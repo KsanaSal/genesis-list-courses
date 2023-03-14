@@ -2,6 +2,7 @@
     margin-top: 32px;
     display: grid;
     gap: 20px;
+    padding: 4px;
 }
 @media screen and (min-width: 768px) {
     .wrapList {
