@@ -7,6 +7,11 @@
     font-style: italic;
     color: #211194;
 }
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 40px;
+    }
+}
 
 .wrapPagination {
     display: grid;

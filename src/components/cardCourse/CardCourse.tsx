@@ -3,7 +3,7 @@ import css from "./CardCourse.module.css";
 
 const CardCourse = ({ course }: { course: Courses }) => {
     return (
-        <div className={css.wrapCard}>
+        <a className={css.wrapCard} href="/genesis-list-courses">
             <img src={course.previewImageLink + "/cover.webp"} alt="Course" />
             <div className={css.wrapContent}>
                 <div className={css.wrapTitle}>
@@ -30,7 +30,7 @@ const CardCourse = ({ course }: { course: Courses }) => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 
