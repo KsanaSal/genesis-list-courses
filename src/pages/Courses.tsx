@@ -1,11 +1,11 @@
 import css from "./Courses.module.css";
-// import CardCourse from "../components/cardCourse/CardCourse";
 import { useEffect, useState } from "react";
 import getCardsCourses from "../data/getCardsCourses";
 import CardListCourse from "../components/cardListCourse/CardListCourse";
+import { Courses } from "../interfaces/courses.interface";
 
 const Characters = ({ loading }: any) => {
-    const [courses, setCourses] = useState([]);
+    const [courses, setCourses] = useState<Courses[]>([]);
 
     useEffect(() => {
         const getCourses = async () => {

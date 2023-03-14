@@ -1,7 +1,7 @@
-import character from "../../assets/character.png";
+import { Courses } from "../../interfaces/courses.interface";
 import css from "./CardCourse.module.css";
 
-const CardCourse = ({ course }: any) => {
+const CardCourse = ({ course }: { course: Courses }) => {
     return (
         <div className={css.wrapCard}>
             <img src={course.previewImageLink + "/cover.webp"} alt="Course" />
