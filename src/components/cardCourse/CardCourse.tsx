@@ -1,3 +1,4 @@
+import Rating from "@mui/material/Rating";
 import { Courses } from "../../interfaces/courses.interface";
 import css from "./CardCourse.module.css";
 
@@ -18,6 +19,13 @@ const CardCourse = ({ course }: { course: Courses }) => {
                     <p className={css.text}>
                         Rating:{" "}
                         <span className={css.span}>{course.rating}</span>
+                        <Rating
+                            className={css.rating}
+                            name="half-rating-read"
+                            defaultValue={course.rating}
+                            precision={0.1}
+                            readOnly
+                        />
                     </p>
                 </div>
                 <div className={css.wrapTitle}>

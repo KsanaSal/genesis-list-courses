@@ -35,13 +35,23 @@
 
 .wrapText {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 4px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 4px 0 4px 0;
 }
+@media screen and (min-width: 1024px) {
+    .wrapText {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 
 .text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-size: 18px;
     font-weight: 500;
 }
@@ -55,4 +65,24 @@
     font-size: 16px;
     font-weight: 500;
     color: #f57f04;
+}
+@media screen and (min-width: 768px) {
+    .span {
+        font-size: 18px;
+    }
+}
+
+.rating {
+    color: #1a887b;
+    font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+    .rating {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .rating {
+        font-size: 20px;
+    }
 }
