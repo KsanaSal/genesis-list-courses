@@ -4,7 +4,7 @@ import css from "./CardCourse.module.css";
 
 const CardCourse = ({ course }: { course: Courses }) => {
     return (
-        <a className={css.wrapCard} href="/genesis-list-courses">
+        <a className={css.wrapCard} href={"/genesis-list-courses/" + course.id}>
             <img src={course.previewImageLink + "/cover.webp"} alt="Course" />
             <div className={css.wrapContent}>
                 <div className={css.wrapTitle}>

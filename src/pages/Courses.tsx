@@ -23,8 +23,6 @@ const Characters = ({ loading }: any) => {
     console.log(courses);
     console.log(loading);
 
-    // const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
     // Here we use item offsets; we could also use page offsets
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);

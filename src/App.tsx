@@ -10,7 +10,7 @@ function App() {
         <Routes>
             <Route>
                 <Route path="/" element={<Courses loading={"loading"} />} />
-                <Route path="details/:id" element={<LessonsCourse />}></Route>
+                <Route path="/:id" element={<LessonsCourse />}></Route>
             </Route>
         </Routes>
     );
