@@ -12,12 +12,13 @@ import { Course } from "../interfaces/course.interface";
 
 const LessonsCourse = () => {
     const [course, setCourse] = useState<Course | null>(null);
+    const [video, setVideo] = useState("");
     const { id } = useParams();
     console.log(id);
     const playerRef = React.useRef<Player | null>(null);
 
     const videoJsOptions = {
-        muted: true,
+        // muted: true,
         // poster: lesson.previewImageLink + "/cover.webp",
         autoplay: false,
         controls: true,
@@ -25,7 +26,7 @@ const LessonsCourse = () => {
         fluid: true,
         sources: [
             {
-                // src: lesson.meta.courseVideoPreview.link,
+                src: video,
             },
         ],
     };
@@ -33,7 +34,6 @@ const LessonsCourse = () => {
     const handlePlayerReady = (player: any) => {
         playerRef.current = player;
 
-        // You can handle player events here, for example:
         player.on("waiting", () => {
             videojs.log("player is waiting");
         });
@@ -52,6 +52,7 @@ const LessonsCourse = () => {
                     const fetchCourse = await getLessonCourseId(id);
                     console.log(fetchCourse);
                     setCourse(fetchCourse);
+                    setVideo(fetchCourse.lessons[0].link);
                 }
             } catch {
                 console.log("first");
@@ -64,7 +65,13 @@ const LessonsCourse = () => {
         const hours: number = Math.floor(value / 3600);
         const minutes: number = Math.floor((value - hours * 3600) / 60);
         const seconds: number = value - hours * 3600 - minutes * 60;
-        return `${hours}:${minutes}:${seconds}`;
+        return `${hours.toString().padStart(2, "0")}:${minutes
+            .toString()
+            .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    };
+
+    const changeVideo = (link: string) => {
+        setVideo(link);
     };
 
     return (
@@ -98,39 +105,59 @@ const LessonsCourse = () => {
                             alt=""
                         />
                         <div className={css.wrapText}>
-                        <div className={css.wrapCount}>
-                            <p className={css.text}>
-                                Lessons video:{" "}
-                                <span className={css.span}>
-                                    {course.lessons.length}
-                                </span>
-                            </p>
-                            <p className={css.text}>
-                                Duration:{" "}
-                                <span className={css.span}>
-                                    {timeTransform(course.duration)}
-                                </span>
-                            </p>
-                        </div>
-                        <p>{course.description}</p>
-                        <p className={css.text}>Skills:</p>
-                        <ul>
-                            {course.meta.skills &&
-                                course.meta.skills.map(
-                                    (skill: any, i: number) => {
-                                        return <li key={i}>{skill}</li>;
-                                    }
-                                )}
-                            </ul>
+                            <div className={css.wrapCount}>
+                                <p className={css.text}>
+                                    Lessons video:{" "}
+                                    <span className={css.span}>
+                                        {course.lessons.length}
+                                    </span>
+                                </p>
+                                <p className={css.text}>
+                                    Duration:{" "}
+                                    <span className={css.span}>
+                                        {timeTransform(course.duration)}
+                                    </span>
+                                </p>
                             </div>
+                            <p>{course.description}</p>
+                            <p className={css.text}>Skills:</p>
+                            <ul>
+                                {course.meta.skills &&
+                                    course.meta.skills.map(
+                                        (skill: any, i: number) => {
+                                            return <li key={i}>{skill}</li>;
+                                        }
+                                    )}
+                            </ul>
+                        </div>
                     </div>
+
+                    <VideoJS
+                        options={videoJsOptions}
+                        onReady={handlePlayerReady}
+                        isHovering={false}
+                    />
+                    <ul>
+                        {course.lessons.map((lesson) => {
+                            return (
+                                <li
+                                    key={lesson.id}
+                                    onClick={() => changeVideo(lesson.link)}
+                                >
+                                    <h2>{lesson.title}</h2>
+                                    <p>
+                                        Lesson <span>{lesson.order}</span>
+                                    </p>
+                                    <span>
+                                        {timeTransform(lesson.duration)}
+                                    </span>
+                                    <p>Status {lesson.status}</p>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </>
             )}
-            {/* <VideoJS
-                options={videoJsOptions}
-                onReady={handlePlayerReady}
-                isHovering={true}
-            /> */}
         </div>
     );
 };
