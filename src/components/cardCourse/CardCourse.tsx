@@ -19,7 +19,6 @@ const CardCourse = ({ course }: { course: Courses }) => {
         sources: [
             {
                 src: course.meta.courseVideoPreview.link,
-                // type: "video/mp4",
             },
         ],
     };
@@ -38,11 +37,7 @@ const CardCourse = ({ course }: { course: Courses }) => {
     };
 
     return (
-        <div
-            className={css.wrapCard}
-
-            // href={"/genesis-list-courses/" + course.id}
-        >
+        <a className={css.wrapCard} href={"/genesis-list-courses/" + course.id}>
             <VideoJS
                 options={videoJsOptions}
                 onReady={handlePlayerReady}
@@ -80,7 +75,7 @@ const CardCourse = ({ course }: { course: Courses }) => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 
