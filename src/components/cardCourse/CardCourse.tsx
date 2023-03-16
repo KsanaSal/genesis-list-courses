@@ -1,11 +1,53 @@
+import React from "react";
 import Rating from "@mui/material/Rating";
+import videojs from "video.js";
 import { Courses } from "../../interfaces/courses.interface";
+import VideoJS from "../videoPlayer/VideoPlayer";
 import css from "./CardCourse.module.css";
+import Player from "video.js/dist/types/player";
 
 const CardCourse = ({ course }: { course: Courses }) => {
+    const playerRef = React.useRef<Player | null>(null);
+
+    const videoJsOptions = {
+        muted: true,
+        poster: course.previewImageLink + "/cover.webp",
+        autoplay: false,
+        controls: true,
+        responsive: true,
+        fluid: true,
+        sources: [
+            {
+                src: course.meta.courseVideoPreview.link,
+                // type: "video/mp4",
+            },
+        ],
+    };
+
+    const handlePlayerReady = (player: any) => {
+        playerRef.current = player;
+
+        // You can handle player events here, for example:
+        player.on("waiting", () => {
+            videojs.log("player is waiting");
+        });
+
+        player.on("dispose", () => {
+            videojs.log("player will dispose");
+        });
+    };
+
     return (
-        <a className={css.wrapCard} href={"/genesis-list-courses/" + course.id}>
-            <img src={course.previewImageLink + "/cover.webp"} alt="Course" />
+        <div
+            className={css.wrapCard}
+
+            // href={"/genesis-list-courses/" + course.id}
+        >
+            <VideoJS
+                options={videoJsOptions}
+                onReady={handlePlayerReady}
+                isHovering={true}
+            />
             <div className={css.wrapContent}>
                 <div className={css.wrapTitle}>
                     <h2 className={css.title}>{course.title}</h2>
@@ -38,7 +80,7 @@ const CardCourse = ({ course }: { course: Courses }) => {
                     </ul>
                 </div>
             </div>
-        </a>
+        </div>
     );
 };
 

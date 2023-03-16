@@ -47,21 +47,25 @@ const Characters = ({ loading }: any) => {
     return (
         <div>
             <h1 className={css.title}>Learn more</h1>
-            <CardListCourse courses={currentItems} />
-            <ReactPaginate
-                breakLabel="..."
-                nextLabel="next"
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
-                pageCount={pageCount}
-                previousLabel="prev"
-                containerClassName={css.wrapPagination}
-                pageClassName={css.wrapTitle}
-                previousClassName={css.wrapTitle}
-                nextClassName={css.wrapTitle}
-                activeClassName={css.wrapActive}
-                // renderOnZeroPageCount={null}
-            />
+            {courses.length > 0 && (
+                <>
+                    <CardListCourse courses={currentItems} />
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel="next"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel="prev"
+                        containerClassName={css.wrapPagination}
+                        pageClassName={css.wrapTitle}
+                        previousClassName={css.wrapTitle}
+                        nextClassName={css.wrapTitle}
+                        activeClassName={css.wrapActive}
+                        // renderOnZeroPageCount={null}
+                    />
+                </>
+            )}
         </div>
     );
 };
