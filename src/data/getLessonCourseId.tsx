@@ -10,7 +10,6 @@ async function getLessonCourseId(id: string) {
                 Authorization: `Bearer ${token}`,
             },
         });
-        // console.log(response);
         return response.data;
     } catch (error) {
         console.error(error);

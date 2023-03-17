@@ -12,7 +12,6 @@ const Characters = ({ loading }: any) => {
         const getCourses = async () => {
             try {
                 const fetchCourses = await getCardsCourses();
-                console.log(fetchCourses);
                 setCourses(fetchCourses.courses);
             } catch {
                 console.log("first");
@@ -20,21 +19,17 @@ const Characters = ({ loading }: any) => {
         };
         getCourses();
     }, []);
-    console.log(courses);
     console.log(loading);
 
     const [itemOffset, setItemOffset] = useState(0);
 
     const endOffset = itemOffset + 10;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = courses.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(courses.length / 10);
 
     const handlePageClick = (event: any) => {
         const newOffset = (event.selected * 10) % courses.length;
-        console.log(
-            `User requested page number ${event.selected}, which is offset ${newOffset}`
-        );
+
         setItemOffset(newOffset);
     };
 
@@ -56,7 +51,6 @@ const Characters = ({ loading }: any) => {
                         previousClassName={css.wrapTitle}
                         nextClassName={css.wrapTitle}
                         activeClassName={css.wrapActive}
-                        // renderOnZeroPageCount={null}
                     />
                 </>
             )}

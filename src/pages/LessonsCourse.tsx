@@ -17,7 +17,6 @@ const LessonsCourse = () => {
     const [titleLesson, setTitleLesson] = useState("");
     const [currentLesson, setCurrentLesson] = useState(0);
     const { id } = useParams();
-    console.log(id);
     const playerRef = React.useRef<Player | null>(null);
 
     const videoJsOptions = {
@@ -44,8 +43,6 @@ const LessonsCourse = () => {
         });
     };
 
-    console.log("first", course);
-
     useEffect(() => {
         const getCourse = async () => {
             try {
@@ -66,7 +63,6 @@ const LessonsCourse = () => {
                         );
                     } else {
                         const currentOrder = JSON.parse(lessonCourse);
-                        console.log(currentOrder);
                         setVideo(
                             fetchCourse.lessons[currentOrder.lessonOrder - 1]
                                 .link
@@ -77,10 +73,7 @@ const LessonsCourse = () => {
                         );
                         setCurrentLesson(currentOrder.lessonOrder);
                     }
-                    console.log(fetchCourse);
                     setCourse(fetchCourse);
-                    // setVideo(fetchCourse.lessons[0].link);
-                    // setTitleLesson(fetchCourse.lessons[0].title);
                 }
             } catch {
                 console.log("first");
@@ -111,7 +104,7 @@ const LessonsCourse = () => {
         }
         setCurrentLesson(lesson.order);
     };
-    console.log(currentLesson);
+
     return (
         <div>
             {course && (
