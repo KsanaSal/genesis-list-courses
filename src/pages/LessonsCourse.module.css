@@ -158,6 +158,7 @@
     padding: 4px;
     border: 1px solid #1a887b;
     border-radius: 8px;
+    cursor: pointer;
 }
 @media screen and (min-width: 768px) {
     .lessons {
@@ -168,6 +169,15 @@
     .lessons {
         min-width: 450px;
     }
+}
+
+.lessonActive {
+    background-color: #211194;
+    color: #fff;
+}
+
+.lessonLocked {
+    pointer-events: none;
 }
 
 .dataLesson {

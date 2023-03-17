@@ -20,7 +20,7 @@ export interface Course {
     lessons: Lesson[];
     containsLockedLessons: boolean;
 }
-interface Lesson {
+export interface Lesson {
     id: string;
     title: string;
     duration: number;
