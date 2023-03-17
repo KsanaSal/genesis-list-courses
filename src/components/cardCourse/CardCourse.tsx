@@ -1,6 +1,7 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
 import videojs from "video.js";
+import Icon from "@mui/material/Icon";
 import { Courses } from "../../interfaces/courses.interface";
 import VideoJS from "../videoPlayer/VideoPlayer";
 import css from "./CardCourse.module.css";
@@ -70,7 +71,14 @@ const CardCourse = ({ course }: { course: Courses }) => {
                     <ul>
                         {course.meta.skills &&
                             course.meta.skills.map((skill: any, i: number) => {
-                                return <li key={i}>{skill}</li>;
+                                return (
+                                    <li key={i} className={css.listSkills}>
+                                        <Icon sx={{ color: "#1a887b" }}>
+                                            hotel_class
+                                        </Icon>
+                                        <span>{skill}</span>
+                                    </li>
+                                );
                             })}
                     </ul>
                 </div>

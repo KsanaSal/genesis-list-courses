@@ -2,6 +2,7 @@ import React from "react";
 import videojs from "video.js";
 import Player from "video.js/dist/types/player";
 import "video.js/dist/video-js.css";
+import css from "./CardCourse.module.css";
 
 export const VideoJS = (props: any) => {
     const videoRef = React.useRef<HTMLDivElement | null>(null);
@@ -67,6 +68,7 @@ export const VideoJS = (props: any) => {
             data-vjs-player
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            style={{ flex: "1" }}
         >
             <div ref={videoRef} />
         </div>

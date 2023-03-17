@@ -107,3 +107,70 @@
         gap: 8px;
     }
 }
+
+.listSkills {
+    display: flex;
+    gap: 4px;
+}
+
+.wrapLessons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.videoLessons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+@media screen and (min-width: 768px) {
+    .videoLessons {
+        flex-direction: row;
+    }
+}
+
+.titleLesson {
+    font-size: 20px;
+    font-weight: 500;
+    color: #211194;
+}
+@media screen and (min-width: 768px) {
+    .titleLesson {
+        font-size: 24px;
+    }
+}
+
+.titleListLesson {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.listLesson {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lessons {
+    background-color: rgba(26, 136, 123, 0.1);
+    padding: 4px;
+    border: 1px solid #1a887b;
+    border-radius: 8px;
+}
+@media screen and (min-width: 768px) {
+    .lessons {
+        min-width: 280px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .lessons {
+        min-width: 450px;
+    }
+}
+
+.dataLesson {
+    display: flex;
+    justify-content: space-between;
+}

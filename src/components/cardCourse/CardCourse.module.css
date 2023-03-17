@@ -86,3 +86,8 @@
         font-size: 20px;
     }
 }
+
+.listSkills {
+    display: flex;
+    gap: 4px;
+}

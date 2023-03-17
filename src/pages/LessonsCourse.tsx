@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import Icon from "@mui/material/Icon";
 import Rating from "@mui/material/Rating";
 import { useParams } from "react-router-dom";
 import css from "./LessonsCourse.module.css";
@@ -13,6 +14,7 @@ import { Course } from "../interfaces/course.interface";
 const LessonsCourse = () => {
     const [course, setCourse] = useState<Course | null>(null);
     const [video, setVideo] = useState("");
+    const [titleLesson, setTitleLesson] = useState("");
     const { id } = useParams();
     console.log(id);
     const playerRef = React.useRef<Player | null>(null);
@@ -53,6 +55,7 @@ const LessonsCourse = () => {
                     console.log(fetchCourse);
                     setCourse(fetchCourse);
                     setVideo(fetchCourse.lessons[0].link);
+                    setTitleLesson(fetchCourse.lessons[0].title);
                 }
             } catch {
                 console.log("first");
@@ -70,8 +73,9 @@ const LessonsCourse = () => {
             .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     };
 
-    const changeVideo = (link: string) => {
+    const changeVideo = (link: string, title: string) => {
         setVideo(link);
+        setTitleLesson(title);
     };
 
     return (
@@ -125,37 +129,87 @@ const LessonsCourse = () => {
                                 {course.meta.skills &&
                                     course.meta.skills.map(
                                         (skill: any, i: number) => {
-                                            return <li key={i}>{skill}</li>;
+                                            return (
+                                                <li
+                                                    key={i}
+                                                    className={css.listSkills}
+                                                >
+                                                    <Icon
+                                                        sx={{
+                                                            color: "#1a887b",
+                                                        }}
+                                                    >
+                                                        hotel_class
+                                                    </Icon>
+                                                    <span>{skill}</span>
+                                                </li>
+                                            );
                                         }
                                     )}
                             </ul>
                         </div>
                     </div>
 
-                    <VideoJS
-                        options={videoJsOptions}
-                        onReady={handlePlayerReady}
-                        isHovering={false}
-                    />
-                    <ul>
-                        {course.lessons.map((lesson) => {
-                            return (
-                                <li
-                                    key={lesson.id}
-                                    onClick={() => changeVideo(lesson.link)}
-                                >
-                                    <h2>{lesson.title}</h2>
-                                    <p>
-                                        Lesson <span>{lesson.order}</span>
-                                    </p>
-                                    <span>
-                                        {timeTransform(lesson.duration)}
-                                    </span>
-                                    <p>Status {lesson.status}</p>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    <div className={css.wrapLessons}>
+                        <h2 className={css.titleLesson}>{titleLesson}</h2>
+                        <div className={css.videoLessons}>
+                            <VideoJS
+                                options={videoJsOptions}
+                                onReady={handlePlayerReady}
+                                isHovering={false}
+                            />
+                            <ul className={css.listLesson}>
+                                {course.lessons
+                                    .sort((l1, l2) => l1.order - l2.order)
+                                    .map((lesson) => {
+                                        return (
+                                            <li
+                                                key={lesson.id}
+                                                onClick={() =>
+                                                    changeVideo(
+                                                        lesson.link,
+                                                        lesson.title
+                                                    )
+                                                }
+                                                className={css.lessons}
+                                            >
+                                                <div className={css.dataLesson}>
+                                                    <p>
+                                                        Lesson{" "}
+                                                        <span>
+                                                            {lesson.order}
+                                                        </span>
+                                                    </p>
+                                                    <span>
+                                                        {timeTransform(
+                                                            lesson.duration
+                                                        )}
+                                                    </span>
+                                                    {/* <p>Status {lesson.status}</p> */}
+                                                    <Icon
+                                                        sx={{
+                                                            color: "#f57f04",
+                                                        }}
+                                                    >
+                                                        {lesson.status ===
+                                                        "unlocked"
+                                                            ? "lock_open"
+                                                            : "lock"}
+                                                    </Icon>
+                                                </div>
+                                                <h3
+                                                    className={
+                                                        css.titleListLesson
+                                                    }
+                                                >
+                                                    {lesson.title}
+                                                </h3>
+                                            </li>
+                                        );
+                                    })}
+                            </ul>
+                        </div>
+                    </div>
                 </>
             )}
         </div>
