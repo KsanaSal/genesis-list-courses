@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Виконання тестового завдання Front-End School 2.0
+Цей проєкт було розроблено по кейсовому завданню.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Технічні вимоги
+Проєкт розроблений на React
 
-## Available Scripts
+Використовується бібліотека video.js для відображення потокового відео у форматі m3u8.
 
-In the project directory, you can run:
+Використовується бібліотека react-paginate для виконання пагінації.
 
-### `npm start`
+Використовується бібліотека @mui/material/Rating для відображення рейтингу.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Використовується бібліотека @mui/material/Icon для відображення іконок.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Використовується бібліотека moment для відтворення часу.
 
-### `npm test`
+## Процес створення проєкту
+Отримані дані для всіх курсів які візуалізовані на головній сторінці.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+При наведенні на картку автоматично починається програватись промо-відео конкретної лекції.
 
-### `npm run build`
+При натискані на картку курса переходить на сторінку обраного курса.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+На сторінці обраного курсу є опис курсу і лекції курсу.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Якщо лекцію можна продивитися вона позначена відкритим замочком, якщо лекція заблокована вона позначена закритим замочком.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Особливості запуску
+Оскільки backend має певні обмеження по CORS політикам виконати завдання допомогло встановлення спеціального плагіна на chrome https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+![image](https://user-images.githubusercontent.com/97843226/226197078-7c1a03f3-1da9-4f66-9846-3802534d5663.png)
+Але це некоректно працює з GitHub pages.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
