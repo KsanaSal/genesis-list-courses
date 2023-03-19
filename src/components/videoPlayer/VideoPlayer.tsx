@@ -6,9 +6,10 @@ import "video.js/dist/video-js.css";
 export const VideoJS = (props: any) => {
     const videoRef = React.useRef<HTMLDivElement | null>(null);
     const playerRef = React.useRef<Player | null>(null);
-    const { options, onReady, isHovering = false } = props;
+    const { options, onReady, isHovering = false, lessonId = "" } = props;
 
     React.useEffect(() => {
+        const startTime = localStorage.getItem(`startTime_${lessonId}`);
         if (!playerRef.current) {
             const videoElement = document.createElement("video-js");
 
@@ -24,13 +25,16 @@ export const VideoJS = (props: any) => {
                     onReady && onReady(player);
                 }
             ));
+            const startTime = localStorage.getItem(`startTime_${lessonId}`);
+            player.currentTime(startTime || 0);
         } else {
             const player = playerRef.current;
 
             player.autoplay(options.autoplay);
             player.src(options.sources);
+            player.currentTime(startTime || 0);
         }
-    }, [options, videoRef, onReady]);
+    }, [options, videoRef, onReady, lessonId]);
 
     const handleMouseEnter = () => {
         if (playerRef.current && isHovering) {
@@ -49,11 +53,13 @@ export const VideoJS = (props: any) => {
 
         return () => {
             if (player && !player.isDisposed()) {
+                const startTime = localStorage.getItem(`startTime_${lessonId}`);
+                player.currentTime(startTime || 0);
                 player.dispose();
                 playerRef.current = null;
             }
         };
-    }, [playerRef]);
+    }, [playerRef, lessonId]);
 
     return (
         <div

@@ -16,6 +16,7 @@ const LessonsCourse = () => {
     const [video, setVideo] = useState("");
     const [titleLesson, setTitleLesson] = useState("");
     const [currentLesson, setCurrentLesson] = useState(0);
+    const [currentLessonId, setCurrentLessonId] = useState("");
     const { id } = useParams();
     const playerRef = React.useRef<Player | null>(null);
 
@@ -33,7 +34,6 @@ const LessonsCourse = () => {
 
     const handlePlayerReady = (player: any) => {
         playerRef.current = player;
-
         player.on("waiting", () => {
             videojs.log("player is waiting");
         });
@@ -41,6 +41,7 @@ const LessonsCourse = () => {
         player.on("dispose", () => {
             videojs.log("player will dispose");
         });
+        player.on("timeupdate", handlePlayerTimeUpdate);
     };
 
     useEffect(() => {
@@ -55,6 +56,7 @@ const LessonsCourse = () => {
                     if (!lessonCourse) {
                         setVideo(fetchCourse.lessons[0].link);
                         setTitleLesson(fetchCourse.lessons[0].title);
+                        setCurrentLessonId(fetchCourse.lessons[0].id);
                         window.localStorage.setItem(
                             id,
                             JSON.stringify({
@@ -72,6 +74,9 @@ const LessonsCourse = () => {
                                 .title
                         );
                         setCurrentLesson(currentOrder.lessonOrder);
+                        setCurrentLessonId(
+                            fetchCourse.lessons[currentOrder.lessonOrder - 1].id
+                        );
                     }
                     setCourse(fetchCourse);
                 }
@@ -94,6 +99,7 @@ const LessonsCourse = () => {
     const changeVideo = (lesson: Lesson) => {
         setVideo(lesson.link);
         setTitleLesson(lesson.title);
+        setCurrentLessonId(lesson.id);
         if (id) {
             window.localStorage.setItem(
                 id,
@@ -103,6 +109,15 @@ const LessonsCourse = () => {
             );
         }
         setCurrentLesson(lesson.order);
+    };
+
+    const handlePlayerTimeUpdate = () => {
+        if (currentLessonId) {
+            localStorage.setItem(
+                `startTime_${currentLessonId}`,
+                `${playerRef.current?.currentTime()}`
+            );
+        }
     };
 
     return (
@@ -184,6 +199,7 @@ const LessonsCourse = () => {
                                 options={videoJsOptions}
                                 onReady={handlePlayerReady}
                                 isHovering={false}
+                                lessonId={currentLessonId}
                             />
                             <ul className={css.listLesson}>
                                 {course.lessons.map((lesson) => {
